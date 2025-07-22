@@ -7,16 +7,14 @@ const Blogs = () => {
         try{
             fetch('blogs.json')
             .then(res => res.json())
-            .then(data => {
-                console.log("🚀 ~ useEffect ~ data:", data)
-            })
+            .then(data => setBlogs(data))
         } catch(error){
             console.error("Failed to fetch blogs:", error);
         }
     },[]);
     return (
-        <div>
-            <h3>This is blogs components.</h3>
+        <div className="md:w-2/3">
+            <h3 className="text-4xl">Blogs: {blogs.length}</h3>
         </div>
     );
 };
